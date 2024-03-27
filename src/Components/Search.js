@@ -88,7 +88,7 @@ export default function Search() {
      <div className={styles.searchResult}>
        
      </div>
-  {f&&   <div className={styles.loading}>Loading data...</div>}
+  {f&&   <p className={styles.loading}>Loading data...</p>}
   {weatherData&&<div className={styles.cardContainer}>
           {  generateCards()}      
       </div>}
