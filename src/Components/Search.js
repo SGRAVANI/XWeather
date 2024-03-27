@@ -85,10 +85,8 @@ export default function Search() {
         <input type='text' placeholder='Enter city name' value={city} onChange={handleChange}/>
         <button  onClick={handleClick}>Search</button>
     </div>
-     <div className={styles.searchResult}>
-       
-     </div>
-  {f&&   <p className={styles.loading}>Loading data...</p>}
+    {f&&   <p className={styles.loading}>Loading data...</p>}
+
   {weatherData&&<div className={styles.cardContainer}>
           {  generateCards()}      
       </div>}
