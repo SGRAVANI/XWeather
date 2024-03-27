@@ -3,6 +3,7 @@ import styles from "./style.module.css"
 import { useEffect } from 'react'
 import axios from 'axios'
 import Card from './Card'
+import "./style.css"
 export default function Search() {
   let [weatherData,setWeatherData]=useState()
   let [city,setCity]=useState("")
@@ -87,7 +88,7 @@ export default function Search() {
         <input type='text' placeholder='Enter city name' value={city} onChange={handleChange}/>
         <button  onClick={handleClick}>Search</button>
     </div>
-    {f?  <p className={styles.loading}>Loading data...</p>:weatherData&&<div className={styles.cardContainer}>
+    {f?  <p className={styles.loading}>Loading data...</p>:weatherData&&<div className="weather-cards">
           {  generateCards()}      
       </div>}
 
