@@ -9,14 +9,14 @@ export default function Search() {
   let [f,setF]=useState(false)
   function handleChange(e)
   {
-    setF(true)
+   // setF(true)
     setCity(e.target.value)
     
     
   }
   async function handleClick()
   {
-    setF(false)
+    setF(true)
     fetchData('https://api.weatherapi.com/v1/current.json')
   }
   async function fetchData(url)
@@ -33,11 +33,13 @@ export default function Search() {
     }})
     console.log(response.data)
     setWeatherData(response.data)
+    
     }
     catch(e)
     {
    alert('Failed to fetch weather data')
     }
+    setF(false)
   }
   }
   useEffect(()=>{
@@ -85,11 +87,13 @@ export default function Search() {
         <input type='text' placeholder='Enter city name' value={city} onChange={handleChange}/>
         <button  onClick={handleClick}>Search</button>
     </div>
-    {f&&   <p className={styles.loading}>Loading data...</p>}
-
-  {weatherData&&<div className={styles.cardContainer}>
+    {f?  <p className={styles.loading}>Loading data...</p>:weatherData&&<div className={styles.cardContainer}>
           {  generateCards()}      
       </div>}
+
+  {/* {weatherData&&<div className={styles.cardContainer}>
+          {  generateCards()}      
+      </div>} */}
     </div>
   )
 }
